@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="MS Transportes - Transporte de mercadorias nacional e internacional. Coimbra, Portugal. Peça o seu orçamento.">
+  <meta name="theme-color" content="#0b1220">
+  <title>MS Transportes | Transporte de Mercadorias</title>
+  <style>
+    :root{--dark:#0b1220;--dark2:#121d31;--accent:#f5b400;--light:#f5f7fa;--text:#172033;--muted:#5d6778;--white:#fff}
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:Arial,Helvetica,sans-serif;color:var(--text);line-height:1.6;background:#fff}
+    a{text-decoration:none;color:inherit}
+    .container{width:min(1120px,92%);margin:auto}
+    header{background:rgba(11,18,32,.97);color:#fff;position:sticky;top:0;z-index:20;border-bottom:1px solid rgba(255,255,255,.08)}
+    .nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .logo{font-size:1.45rem;font-weight:800;letter-spacing:.5px}.logo span{color:var(--accent)}
+    nav{display:flex;gap:25px;font-weight:600;font-size:.95rem}
+    nav a:hover{color:var(--accent)}
+    .menu{display:none;background:none;border:0;color:#fff;font-size:1.7rem}
+    .hero{background:linear-gradient(115deg,rgba(11,18,32,.96),rgba(18,29,49,.86)),linear-gradient(135deg,#24344e,#0b1220);color:#fff;padding:105px 0 90px}
+    .hero-grid{display:grid;grid-template-columns:1.2fr .8fr;align-items:center;gap:55px}
+    .badge{display:inline-block;background:rgba(245,180,0,.14);color:#ffd45a;border:1px solid rgba(245,180,0,.35);padding:7px 12px;border-radius:999px;font-size:.85rem;font-weight:700;margin-bottom:20px}
+    h1{font-size:clamp(2.5rem,6vw,4.6rem);line-height:1.05;margin-bottom:20px}
+    h1 span{color:var(--accent)}
+    .hero p{font-size:1.15rem;color:#d9dfeb;max-width:650px;margin-bottom:30px}
+    .buttons{display:flex;flex-wrap:wrap;gap:12px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 20px;border-radius:9px;font-weight:800;border:2px solid transparent;transition:.2s}
+    .btn-primary{background:var(--accent);color:#101722}.btn-primary:hover{transform:translateY(-2px);background:#ffc52e}
+    .btn-outline{border-color:#fff;color:#fff}.btn-outline:hover{background:#fff;color:var(--dark)}
+    .hero-card{background:#fff;color:var(--text);padding:28px;border-radius:18px;box-shadow:0 18px 50px rgba(0,0,0,.25)}
+    .hero-card h3{margin-bottom:10px;font-size:1.35rem}.hero-card p{color:var(--muted);font-size:.98rem;margin-bottom:18px}
+    .contact-line{padding:12px 0;border-top:1px solid #e7eaf0;font-weight:700}.contact-line:first-of-type{border-top:0}
+    section{padding:82px 0}.section-head{text-align:center;max-width:700px;margin:0 auto 45px}.section-head h2{font-size:2.2rem;margin-bottom:10px}.section-head p{color:var(--muted)}
+    .services{background:var(--light)}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .card{background:#fff;padding:28px;border-radius:15px;border:1px solid #e7eaf0;box-shadow:0 8px 25px rgba(17,27,45,.05)}
+    .icon{font-size:2rem;margin-bottom:15px}.card h3{margin-bottom:8px}.card p{color:var(--muted)}
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:55px;align-items:center}
+    .about-box{background:var(--dark);color:#fff;border-radius:20px;padding:35px}.about-box strong{color:var(--accent)}
+    .checklist{list-style:none;margin-top:20px}.checklist li{margin:12px 0}.checklist li::before{content:"✓";color:var(--accent);font-weight:900;margin-right:10px}
+    .cta{background:var(--accent);color:#101722;text-align:center;padding:65px 0}.cta h2{font-size:2.3rem;margin-bottom:10px}.cta p{margin-bottom:22px}
+    .btn-dark{background:var(--dark);color:#fff}.btn-dark:hover{background:#1b2a43}
+    .contact{background:var(--light)}.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:25px}
+    .contact-card{background:#fff;border:1px solid #e7eaf0;border-radius:15px;padding:30px}.contact-card h3{margin-bottom:15px}
+    .contact-item{padding:13px 0;border-bottom:1px solid #edf0f4}.contact-item:last-child{border-bottom:0}.contact-item span{display:block;color:var(--muted);font-size:.88rem}
+    form{display:grid;gap:12px}label{font-size:.9rem;font-weight:700}input,textarea,select{width:100%;padding:13px;border:1px solid #d9dee7;border-radius:8px;font:inherit}textarea{min-height:120px;resize:vertical}
+    footer{background:var(--dark);color:#cbd3e0;text-align:center;padding:28px 0;font-size:.9rem}
+    .wa{position:fixed;right:18px;bottom:18px;background:#25D366;color:#fff;width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.65rem;font-weight:900;box-shadow:0 8px 25px rgba(0,0,0,.25);z-index:30}
+    .small{font-size:.82rem;color:var(--muted);margin-top:8px}
+    @media(max-width:800px){
+      nav{display:none;position:absolute;left:0;right:0;top:72px;background:var(--dark);padding:18px 4%;flex-direction:column;gap:15px}
+      nav.open{display:flex}.menu{display:block}.hero-grid,.about-grid,.contact-grid{grid-template-columns:1fr}.cards{grid-template-columns:1fr}.hero{padding:75px 0 60px}section{padding:65px 0}
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="container nav">
+    <a class="logo" href="#inicio">MS <span>Transportes</span></a>
+    <button class="menu" aria-label="Abrir menu" onclick="toggleMenu()">☰</button>
+    <nav id="nav">
+      <a href="#inicio">Início</a><a href="#servicos">Serviços</a><a href="#sobre">Sobre nós</a><a href="#orcamento">Orçamento</a><a href="#contactos">Contactos</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="inicio">
+  <div class="container hero-grid">
+    <div>
+      <div class="badge">COIMBRA · PORTUGAL</div>
+      <h1>Transporte de mercadorias <span>com confiança.</span></h1>
+      <p>A MS Transportes realiza transporte de mercadorias a nível nacional e internacional, com soluções pensadas para as necessidades de cada cliente.</p>
+      <div class="buttons">
+        <a class="btn btn-primary" href="https://wa.me/351936899828?text=Olá%20MS%20Transportes,%20gostaria%20de%20pedir%20um%20orçamento." target="_blank">Pedir orçamento pelo WhatsApp</a>
+        <a class="btn btn-outline" href="#servicos">Conhecer serviços</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <h3>Fale connosco</h3>
+      <p>Precisa de transportar mercadorias? Envie-nos os detalhes e peça o seu orçamento.</p>
+      <div class="contact-line">☎ 239 074 053</div>
+      <div class="contact-line">💬 936 899 828 — WhatsApp</div>
+      <div class="contact-line">📍 Coimbra, Portugal</div>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="servicos">
+  <div class="container">
+    <div class="section-head"><h2>Os nossos serviços</h2><p>Soluções de transporte para mercadorias, com cobertura nacional e internacional.</p></div>
+    <div class="cards">
+      <article class="card"><div class="icon">🇵🇹</div><h3>Transporte Nacional</h3><p>Transporte de mercadorias em Portugal, com soluções adequadas às necessidades de cada serviço.</p></article>
+      <article class="card"><div class="icon">🌍</div><h3>Transporte Internacional</h3><p>Transporte de mercadorias entre Portugal e destinos internacionais, mediante as necessidades do cliente.</p></article>
+      <article class="card"><div class="icon">📦</div><h3>Recolha e Entrega</h3><p>Serviços de recolha e entrega de mercadorias, procurando garantir uma operação simples e eficiente.</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="sobre">
+  <div class="container about-grid">
+    <div>
+      <div class="section-head" style="text-align:left;margin:0 0 20px"><h2>MS Transportes</h2><p>O seu parceiro de transporte em Coimbra.</p></div>
+      <p>A MS Transportes está sediada em Coimbra e é especializada no transporte de mercadorias nacional e internacional.</p>
+      <ul class="checklist">
+        <li>Atendimento personalizado</li><li>Transporte nacional e internacional</li><li>Soluções adaptadas a cada serviço</li><li>Contacto direto e rápido</li>
+      </ul>
+    </div>
+    <div class="about-box"><h3>Precisa de transportar uma mercadoria?</h3><p style="margin:12px 0 22px">Envie-nos a origem, destino, tipo de mercadoria e data pretendida.</p><a class="btn btn-primary" href="#orcamento">Solicitar orçamento</a></div>
+  </div>
+</section>
+
+<section class="cta" id="orcamento">
+  <div class="container">
+    <h2>Peça já o seu orçamento</h2>
+    <p>Entre em contacto com a MS Transportes pelo WhatsApp e explique-nos o que precisa.</p>
+    <a class="btn btn-dark" href="https://wa.me/351936899828?text=Olá%20MS%20Transportes,%20gostaria%20de%20pedir%20um%20orçamento.%0AOrigem:%20%0ADestino:%20%0ATipo%20de%20mercadoria:%20%0AData:%20" target="_blank">Falar pelo WhatsApp</a>
+  </div>
+</section>
+
+<section class="contact" id="contactos">
+  <div class="container">
+    <div class="section-head"><h2>Contactos</h2><p>Estamos disponíveis para esclarecer as suas necessidades de transporte.</p></div>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <h3>MS Transportes</h3>
+        <div class="contact-item"><span>Telefone</span><a href="tel:+351239074053">239 074 053</a></div>
+        <div class="contact-item"><span>WhatsApp</span><a href="https://wa.me/351936899828" target="_blank">936 899 828</a></div>
+        <div class="contact-item"><span>Localização</span>Coimbra, Portugal</div>
+        <p class="small">Transporte de mercadorias nacional e internacional.</p>
+      </div>
+      <div class="contact-card">
+        <h3>Pedido de orçamento</h3>
+        <form onsubmit="sendWhatsApp(event)">
+          <div><label for="nome">Nome</label><input id="nome" required placeholder="O seu nome"></div>
+          <div><label for="origem">Origem</label><input id="origem" required placeholder="Local de recolha"></div>
+          <div><label for="destino">Destino</label><input id="destino" required placeholder="Local de entrega"></div>
+          <div><label for="mercadoria">Mercadoria</label><input id="mercadoria" required placeholder="Tipo de mercadoria"></div>
+          <div><label for="data">Data pretendida</label><input id="data" type="date"></div>
+          <button class="btn btn-primary" type="submit">Enviar pedido pelo WhatsApp</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer><div class="container">© <span id="year"></span> MS Transportes · Coimbra, Portugal</div></footer>
+<a class="wa" href="https://wa.me/351936899828?text=Olá%20MS%20Transportes,%20gostaria%20de%20pedir%20um%20orçamento." target="_blank" aria-label="WhatsApp">☏</a>
+
+<script>
+function toggleMenu(){document.getElementById('nav').classList.toggle('open')}
+document.querySelectorAll('nav a').forEach(a=>a.addEventListener('click',()=>document.getElementById('nav').classList.remove('open')));
+document.getElementById('year').textContent=new Date().getFullYear();
+function sendWhatsApp(e){
+  e.preventDefault();
+  const n=document.getElementById('nome').value, o=document.getElementById('origem').value, d=document.getElementById('destino').value, m=document.getElementById('mercadoria').value, dt=document.getElementById('data').value||'Não indicada';
+  const msg=`Olá MS Transportes, gostaria de pedir um orçamento.%0A%0ANome: ${encodeURIComponent(n)}%0AOrigem: ${encodeURIComponent(o)}%0ADestino: ${encodeURIComponent(d)}%0AMercadoria: ${encodeURIComponent(m)}%0AData pretendida: ${encodeURIComponent(dt)}`;
+  window.open('https://wa.me/351936899828?text='+msg,'_blank');
+}
+</script>
+</body>
+</html>
